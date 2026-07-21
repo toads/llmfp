@@ -14,6 +14,19 @@ does not prove that the same provider generated the final model response.
 This is an independent research tool. It is not affiliated with, endorsed by,
 or sponsored by OpenAI, Anthropic, or ProjectDiscovery.
 
+### Scope at a glance
+
+| Signal | Current conclusion | Not established |
+|---|---|---|
+| Exact callback from a provider-published CIDR | Web-tool infrastructure attribution | Generation-model identity |
+| User-Agent match only | Weak, forgeable supporting evidence | Provider attribution |
+| API-reported model name | Unverified endpoint claim | Model authenticity |
+| No callback | Inconclusive result | That a relay is fake |
+
+Read [the evidence model](docs/EVIDENCE.md) before using results in an audit or
+public claim. Planned behavioral fingerprints and contribution opportunities
+are tracked in [TODO.md](TODO.md).
+
 ## Install
 
 Download a published release archive from the [releases
@@ -209,6 +222,11 @@ The API key stays in the local CLI, but it is sent to the host selected by
 put secrets in probe URLs or prompts; use a self-hosted Interactsh server for
 sensitive testing. See [SECURITY.md](SECURITY.md).
 
+The API endpoint sees the unique probe URL and can fetch it directly. Therefore
+an exact path proves correlation with the test, not that the claimed model chose
+or executed the tool. Full interpretation and adversary assumptions are in
+[docs/EVIDENCE.md](docs/EVIDENCE.md).
+
 ## Development
 
 ```bash
@@ -222,5 +240,12 @@ default test suite.
 
 ## License
 
-Apache-2.0. See [LICENSE](LICENSE) and
+Project source code and documentation are licensed under Apache-2.0. You may
+use, modify, and redistribute them subject to that license, including its notice
+and patent terms. Contributions are accepted under the same license. See
+[LICENSE](LICENSE), [NOTICE](NOTICE), and
 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
+
+External papers and datasets keep their own licenses. In particular, the
+planned Zenodo behavioral-fingerprint dataset is CC-BY-4.0 and is not currently
+bundled or relicensed as Apache-2.0.

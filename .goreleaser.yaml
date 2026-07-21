@@ -41,6 +41,7 @@ archives:
       {{- else }}{{ .Arch }}{{ end }}
     files:
       - LICENSE
+      - NOTICE
       - README.md
       - SECURITY.md
       - sbom.cdx.json

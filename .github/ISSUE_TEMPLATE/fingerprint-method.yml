@@ -1,0 +1,65 @@
+name: Fingerprint method proposal
+description: Propose a new independent fingerprint or attribution evidence layer
+title: "[method]: "
+labels:
+  - enhancement
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for proposing a method. llmfp reports evidence layers separately; please define a narrow claim and how it can fail.
+  - type: dropdown
+    id: layer
+    attributes:
+      label: Evidence layer
+      options:
+        - Tool or network infrastructure
+        - Behavioral output distribution
+        - API or protocol behavior
+        - Tokenizer behavior
+        - Capability probe
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: claim
+    attributes:
+      label: Supported claim
+      description: What exact conclusion would a positive result support, and what would it not prove?
+    validations:
+      required: true
+  - type: textarea
+    id: method
+    attributes:
+      label: Method and reproducibility
+      description: Describe inputs, sampling, scoring, thresholds, fixtures, and reference data.
+    validations:
+      required: true
+  - type: textarea
+    id: evaluation
+    attributes:
+      label: Evaluation evidence
+      description: Include known positives, negatives, unknown-model behavior, false positives, drift, and citations.
+    validations:
+      required: true
+  - type: textarea
+    id: evasion
+    attributes:
+      label: Evasion and confounders
+      description: How could a relay imitate, proxy, suppress, or accidentally change this signal?
+    validations:
+      required: true
+  - type: textarea
+    id: operations
+    attributes:
+      label: Cost, privacy, and external services
+      description: State query count, likely cost, latency, data exposure, and required services.
+    validations:
+      required: true
+  - type: textarea
+    id: license
+    attributes:
+      label: Source and data licenses
+      description: Link all code, papers, and datasets and state their licenses and attribution requirements.
+    validations:
+      required: true
