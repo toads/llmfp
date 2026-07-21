@@ -27,6 +27,19 @@ Read [the evidence model](docs/EVIDENCE.md) before using results in an audit or
 public claim. Planned behavioral fingerprints and contribution opportunities
 are tracked in [TODO.md](TODO.md).
 
+## How tool-layer attribution works
+
+![llmfp tool-layer attribution flow](docs/images/llmfp-tool-attribution.png)
+
+The normal evidence path is shown in blue, grey, and green. The dashed red path
+is an important adversarial alternative: because the API endpoint sees the
+unique probe URL, a relay can fetch it directly or invoke a genuine hosted tool
+independently of the model used to generate its answer.
+
+Download the editable [Draw.io source](docs/architecture/llmfp-tool-attribution.drawio),
+the [editable high-resolution PNG](docs/images/llmfp-tool-attribution.drawio.png),
+or the [SVG export](docs/images/llmfp-tool-attribution.svg).
+
 ## Install
 
 Download a published release archive from the [releases

@@ -4,6 +4,10 @@
 performed an observed web-tool callback?** It does not authenticate the model
 that generated an API response.
 
+The complete flow is illustrated in the
+[editable Draw.io architecture diagram](architecture/llmfp-tool-attribution.drawio)
+and embedded in the project README.
+
 ## What happens during a test
 
 1. The local CLI registers a fresh Interactsh session and creates a random host

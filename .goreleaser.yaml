@@ -46,6 +46,9 @@ archives:
       - SECURITY.md
       - sbom.cdx.json
       - THIRD_PARTY_NOTICES.md
+      - TODO.md
+      - docs/*.md
+      - docs/**/*
 
 checksum:
   name_template: checksums.txt
