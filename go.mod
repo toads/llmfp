@@ -1,6 +1,6 @@
 module github.com/toads/llmfp
 
-go 1.25.0
+go 1.25.12
 
 require golang.org/x/term v0.45.0
 

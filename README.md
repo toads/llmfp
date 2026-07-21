@@ -39,7 +39,8 @@ official key is not accidentally sent to a relay.
 
 ## Build
 
-Go 1.25 or newer is required.
+Go 1.25.12 or newer is required. This minimum includes the standard-library
+security fixes used by the release CI.
 
 ```bash
 go build -o llmfp ./cmd/llmfp

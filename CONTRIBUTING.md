@@ -4,7 +4,7 @@ Thanks for helping improve `llmfp`.
 
 ## Development setup
 
-Install Go 1.25 or newer, then run:
+Install Go 1.25.12 or newer, then run:
 
 ```bash
 go mod download
