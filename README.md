@@ -42,20 +42,58 @@ or the [SVG export](docs/images/llmfp-tool-attribution.svg).
 
 ## Install
 
-Download a published release archive from the [releases
-page](https://github.com/toads/llmfp/releases), or install from source:
+### Prebuilt release (recommended)
+
+Download the archive for your operating system and CPU from the
+[releases page](https://github.com/toads/llmfp/releases). Prebuilt releases do
+not require Go. Extract `llmfp` (`llmfp.exe` on Windows), place it in a directory
+listed in `PATH`, and verify it:
+
+```bash
+llmfp version
+```
+
+### Install with Go
+
+Go 1.25.12 or newer is required:
 
 ```bash
 go install github.com/toads/llmfp/cmd/llmfp@latest
+llmfp version
 ```
+
+`go install` installs the executable but does **not** modify your shell's
+`PATH`. If the installation succeeds but `llmfp` says `command not found`, find
+the actual install directory:
+
+```bash
+GO_BIN="$(go env GOBIN)"
+[ -n "$GO_BIN" ] || GO_BIN="$(go env GOPATH)/bin"
+
+echo "llmfp was installed in: $GO_BIN"
+"$GO_BIN/llmfp" version
+```
+
+If the absolute-path command works, add that directory to `PATH`. For macOS
+with zsh:
+
+```bash
+printf '\nexport PATH="%s:$PATH"\n' "$GO_BIN" >> "$HOME/.zshrc"
+source "$HOME/.zshrc"
+hash -r
+llmfp version
+```
+
+Linux bash users can use the same commands with `$HOME/.bashrc`. Windows and
+additional troubleshooting steps are covered in the
+[installation guide](docs/INSTALL.md). Do not use `sudo go install`: it can
+install the executable under root's Go directory instead of your own.
 
 ## Quick start
 
 ```bash
-go build -o llmfp ./cmd/llmfp
-
 export RELAY_API_KEY='replace-me'
-./llmfp test --base-url https://relay.example --model claimed-model-name
+llmfp test --base-url https://relay.example --model claimed-model-name
 ```
 
 `llmfp` automatically checks `LLMFP_API_KEY` and then `RELAY_API_KEY`. It uses
